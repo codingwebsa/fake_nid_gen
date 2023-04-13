@@ -18,7 +18,7 @@ export default async function og(req: Request) {
   const mother = searchParams.get("mother");
   const date = searchParams.get("date");
   const id = searchParams.get("id");
-  const imageURL = searchParams.get("image_url");
+  // const imageURL = searchParams.get("image_url");
 
   if (!name) {
     return new Response("Name parameter is required", { status: 404 });
@@ -38,9 +38,9 @@ export default async function og(req: Request) {
   if (!id) {
     return new Response("id parameter is required", { status: 404 });
   }
-  if (!imageURL) {
-    return new Response("imageURL parameter is required", { status: 404 });
-  }
+  // if (!imageURL) {
+  //   return new Response("imageURL parameter is required", { status: 404 });
+  // }
 
   const arr: Item[] = [
     {
@@ -94,7 +94,7 @@ export default async function og(req: Request) {
           width="500"
           height="300"
           src={`${
-            process.env.VERCEL_URL || "http://localhost:3000/"
+            process.env.SITE_URL || "http://localhost:3000/"
           }/nid_mockup.jpg`}
           alt=""
         />
@@ -110,7 +110,7 @@ export default async function og(req: Request) {
             {item.name}
           </p>
         ))}
-        <img
+        {/* <img
           src={imageURL}
           style={{
             position: "absolute",
@@ -120,7 +120,7 @@ export default async function og(req: Request) {
           width={100}
           height={100}
           alt=""
-        />
+        /> */}
       </div>
     ),
     {
